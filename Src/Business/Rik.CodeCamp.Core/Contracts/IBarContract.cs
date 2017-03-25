@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 using GAIT.Utilities.DI.Attributes;
+using Rik.Codecamp.Entities;
 
 namespace Rik.CodeCamp.Core.Contracts
 {
@@ -12,12 +13,12 @@ namespace Rik.CodeCamp.Core.Contracts
         bool IsConnected();
 
         [OperationContract]
-        Task<IEnumerable<BraveService>> GetAllBraves();
+        Task<IEnumerable<Brave>> GetAllBraves();
 
         [OperationContract]
-        Task<BraveService> GetBrave(int Id);
+        Task<Brave> GetBrave(int Id);
         
         [OperationContract]
-        Task<int> SaveOrUpdateBrave(BraveService brave);
+        Task<int> SaveOrUpdateBrave(Brave brave);
     }
 }
