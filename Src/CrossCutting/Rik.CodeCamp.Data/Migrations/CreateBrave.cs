@@ -7,7 +7,7 @@ namespace Rik.CodeCamp.Data.Migrations
     {
         public override void Up()
         {
-            Execute(@"CREATE TABLE `Brave` (
+            Execute(@"CREATE TABLE `Braves` (
 	            `Id`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	            `NewId`	INTEGER,
 	            `WorldId`	INTEGER,
