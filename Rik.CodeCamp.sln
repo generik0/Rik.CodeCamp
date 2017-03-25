@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rik.CodeCamp.Host", "Src\Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rik.CodeCamp.Core", "Src\Business\Rik.CodeCamp.Core\Rik.CodeCamp.Core.csproj", "{24D2ED33-0BDE-4CB9-AE00-324013E37C83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rik.CodeCamp.Data", "Src\CrossCutting\Rik.CodeCamp.Data\Rik.CodeCamp.Data.csproj", "{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{24D2ED33-0BDE-4CB9-AE00-324013E37C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D2ED33-0BDE-4CB9-AE00-324013E37C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D2ED33-0BDE-4CB9-AE00-324013E37C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +51,6 @@ Global
 		{454F4E7F-2180-4904-A2A3-20804A253A33} = {519BF6A9-961C-4BC2-90EF-53043CD80D54}
 		{A91C6BA6-CD4B-4E38-B9D3-FE475489AB8F} = {C6E65DC3-F931-4BEF-BF1F-77176952634F}
 		{24D2ED33-0BDE-4CB9-AE00-324013E37C83} = {FDEF85BD-E931-4DD1-BC6D-6A926D55C869}
+		{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9} = {519BF6A9-961C-4BC2-90EF-53043CD80D54}
 	EndGlobalSection
 EndGlobal
