@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFactoryInstaller.cs" />
+    <Compile Include="Migrations\CreateWorld.cs" />
+    <Compile Include="Migrations\CreateNew.cs" />
     <Compile Include="Migrations\CreateBrave.cs" />
     <Compile Include="Migrations\IMigrator.cs" />
     <Compile Include="Migrations\Migrator.cs" />

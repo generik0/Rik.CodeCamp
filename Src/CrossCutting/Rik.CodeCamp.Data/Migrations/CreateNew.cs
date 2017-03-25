@@ -2,17 +2,14 @@
 
 namespace Rik.CodeCamp.Data.Migrations
 {
-    [Migration(20170325152500)]
-    public class CreateBrave : Migration
+    [Migration(20170325151800)]
+    public class CreateNew : Migration
     {
         public override void Up()
         {
-            Execute(@"CREATE TABLE `Brave` (
+            Execute(@"CREATE TABLE `World` (
 	            `Id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	            `NewId`	INTEGER,
-	            `WorldId`	INTEGER,
-                FOREIGN KEY(NewId) REFERENCES New(Id)
-                FOREIGN KEY(WorldId) REFERENCES World(Id)
+	            `datetime`	NUMERIC
                 );");
         }
 

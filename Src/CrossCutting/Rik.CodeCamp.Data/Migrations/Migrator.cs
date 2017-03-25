@@ -24,7 +24,7 @@ namespace Rik.CodeCamp.Data.Migrations
             using (var uow = _dbFactory.Create<IUnitOfWork, IFooSession>(IsolationLevel.Serializable))
             {
                 var databaseProvider = new SqliteDatabaseProvider(uow.Connection as System.Data.Common.DbConnection);
-                var migrator = new SimpleMigrator(Assembly.GetCallingAssembly(), databaseProvider);
+                var migrator = new SimpleMigrator(Assembly.GetExecutingAssembly(), databaseProvider);
 
                 migrator.Load();
                 migrator.MigrateToLatest();
