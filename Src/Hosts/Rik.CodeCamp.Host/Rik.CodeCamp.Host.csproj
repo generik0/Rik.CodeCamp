@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="CodeCampControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +69,16 @@
     <Reference Include="Topshelf.NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Topshelf.NLog.4.0.3\lib\net452\Topshelf.NLog.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Rik.CodeCamp.Core\Rik.CodeCamp.Core.csproj">
+      <Project>{24D2ED33-0BDE-4CB9-AE00-324013E37C83}</Project>
+      <Name>Rik.CodeCamp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossCutting\GAIT.Utilities\GAIT.Utilities.csproj">
+      <Project>{454F4E7F-2180-4904-A2A3-20804A253A33}</Project>
+      <Name>GAIT.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

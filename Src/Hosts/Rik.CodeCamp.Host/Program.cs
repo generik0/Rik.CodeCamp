@@ -1,5 +1,6 @@
-﻿
-using GAIT.Utilities;
+﻿using GAIT.Utilities;
+using Topshelf;
+using Topshelf.Runtime;
 
 namespace Rik.CodeCamp.Host
 {
