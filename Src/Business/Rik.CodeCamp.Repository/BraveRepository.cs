@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Dapper;
 using Rik.Codecamp.Entities;
 using Smooth.IoC.Repository.UnitOfWork;
+using Smooth.IoC.Repository.UnitOfWork.Extensions;
 using Smooth.IoC.UnitOfWork;
-using SqlDialect = Dapper.FastCrud.SqlDialect;
 
 namespace Rik.CodeCamp.Repository
 {
@@ -21,16 +21,33 @@ namespace Rik.CodeCamp.Repository
             _newRepository = newRepository;
             _worldRepository = worldRepository;
         }
+
+        //This is using Smooth.IoC.Repo
         public override async Task<int> SaveOrUpdateAsync(Brave entity, IUnitOfWork uow)
         {
-            var newId= await _newRepository.SaveOrUpdateAsync(entity.New, uow);
-            var worldId = await _worldRepository.SaveOrUpdateAsync(entity.World, uow);
+            var newId = await GetOrCreateValue(entity.New, entity.New.Value, uow, nameof(New.Value), _newRepository);
+            var worldId = await GetOrCreateValue(entity.World, entity.World.DateTime, uow, nameof(World.DateTime),_worldRepository);
+
             entity.NewId = newId;
             entity.WorldId = worldId;
             var actual = SaveOrUpdate(entity,uow);
             return actual;
         }
 
+       private static async Task<int> GetOrCreateValue<T, TValue>(T entity, TValue value, IUnitOfWork uow, string column, IRepository<T,int> repository) where T : class, IEntity<int>
+        {
+            return await Task.Run(() =>
+            {
+                var actual = uow.Find<T>(statement =>
+                {
+                    statement.Where($"{column:C} = @p1")
+                        .WithParameters(new { p1 = value });
+                }).FirstOrDefault();
+                return actual?.Id ?? repository.SaveOrUpdate(entity, uow);
+            });
+        }
+
+        //This is using dapper (with some name resolving ny FastCrud)
         public override async Task<IEnumerable<Brave>> GetAllAsync(ISession session)
         {
             var query = $@"SELECT fact.Id, fact.NewId, fact.WorldId, val.Id, val.Value, ts.Id, ts.datetime FROM 
@@ -46,6 +63,39 @@ namespace Rik.CodeCamp.Repository
                         factdata.World = ts;
                         return factdata;
                     });
+            return actual;
+        }
+
+        //This is using Dapper.FastCrud
+        public override async Task<Brave> GetAsync(Brave entity, ISession session)
+        {
+
+            var result = await session.GetAsync(entity, statement =>
+            {
+                statement.Include<New>(join => join.InnerJoin())
+                    .Include<World>(join => join.InnerJoin());
+            });
+
+
+            var query = $@"SELECT fact.Id, fact.NewId, fact.WorldId, val.Id, val.Value, ts.Id, ts.datetime FROM 
+                    {Sql.Table<Brave>(SqlDialect.SqLite)} as fact 
+                    INNER JOIN {Sql.Table<New>(SqlDialect.SqLite)} as val ON val.Id = fact.NewId
+                    INNER JOIN  {Sql.Table<World>(SqlDialect.SqLite)} as ts ON ts.Id =fact.WorldId  
+            Where {Sql.Table<Brave>(SqlDialect.SqLite)}.Id = @Id
+			Order by ts.datetime asc";
+
+            var parameter = new {entity.Id};
+
+            var actual = await Task.Run(() =>
+            {
+                return session.QueryAsync<Brave, New, World, Brave>(query,
+                    (factdata, val, ts) =>
+                    {
+                        factdata.New = val;
+                        factdata.World = ts;
+                        return factdata;
+                    }, parameter).Result.SingleOrDefault();
+            });
             return actual;
         }
     }
