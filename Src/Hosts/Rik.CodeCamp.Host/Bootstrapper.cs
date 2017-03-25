@@ -16,7 +16,7 @@ namespace Rik.CodeCamp.Host
         public Bootstrapper()
         {
             CreateInversionOfControlContainer();
-            Container.Install(new DataFactoryInstaller());
+            Container.Install(new DataFactoryInstaller(), new CqrsInstaller());
             ActivatorFactory.Resolve<NancyBootstrapper>(Container);
             CheckForPotentiallyMisconfiguredComponents(Container);
         }
