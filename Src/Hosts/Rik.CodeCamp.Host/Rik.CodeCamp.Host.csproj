@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="AppSettings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ConnectionSettings.config" />
     <None Include="NLog.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -79,6 +83,10 @@
     <ProjectReference Include="..\..\CrossCutting\GAIT.Utilities\GAIT.Utilities.csproj">
       <Project>{454F4E7F-2180-4904-A2A3-20804A253A33}</Project>
       <Name>GAIT.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossCutting\Rik.CodeCamp.Data\Rik.CodeCamp.Data.csproj">
+      <Project>{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}</Project>
+      <Name>Rik.CodeCamp.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
