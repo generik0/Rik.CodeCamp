@@ -42,7 +42,7 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
                     Message = {ClientCredentialType = BasicHttpMessageCredentialType.Certificate}
                 }
             };
-            Container.Register(Component.For<IBarService>()
+            Container.Register(Component.For<IBarContract>()
                 .AsWcfClient(new DefaultClientModel
                 {
                     Endpoint = WcfEndpoint.BoundTo(_clientBinding).At("http://localhost/BarService")

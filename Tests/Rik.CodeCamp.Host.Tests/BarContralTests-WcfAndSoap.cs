@@ -18,7 +18,7 @@ namespace Rik.CodeCamp.Host.Tests
         [Test, Category("Integration")]
         public static void IsConnected_True()
         {
-            var target = Container.Resolve<IBarService>();
+            var target = Container.Resolve<IBarContract>();
             var actual = target.IsConnected();
             actual.Should().BeTrue();
         }
@@ -31,7 +31,7 @@ namespace Rik.CodeCamp.Host.Tests
         [TestCase("2017-03-25T22:00"), Category("Integration")]
         public static void _1_SaveOrUpdateBrave_DoesNotThrowAsync_AndReturnsBraveId(string datetime)
         {
-            var target = Container.Resolve<IBarService>();
+            var target = Container.Resolve<IBarContract>();
             var actual=0;
             Assert.DoesNotThrowAsync(async ()=> actual = await target.SaveOrUpdateBrave(CreateRandomBrave(datetime)));
             actual.Should().BePositive();
@@ -41,7 +41,7 @@ namespace Rik.CodeCamp.Host.Tests
         [Test,Category("Integration")]
         public static void _2_GetAllBraves_DoesNotThrowAsync_AndGetsAllBraves()
         {
-            var target = Container.Resolve<IBarService>();
+            var target = Container.Resolve<IBarContract>();
             IEnumerable<Brave> actual = null;
             Assert.DoesNotThrowAsync(async () => actual = await target.GetAllBraves());
             actual.Should().NotBeNull();
@@ -56,7 +56,7 @@ namespace Rik.CodeCamp.Host.Tests
         [Test, Category("Integration")]
         public static void _3_GetBrave()
         {
-            var target = Container.Resolve<IBarService>();
+            var target = Container.Resolve<IBarContract>();
             Brave actual = null;
             Assert.DoesNotThrowAsync(async () => actual = await target.GetBrave(1)); //There should be a 1
             actual.Should().NotBeNull();

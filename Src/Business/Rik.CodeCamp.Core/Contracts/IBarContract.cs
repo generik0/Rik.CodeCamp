@@ -2,23 +2,22 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 using GAIT.Utilities.DI.Attributes;
-using Rik.Codecamp.Entities;
 
 namespace Rik.CodeCamp.Core.Contracts
 {
     [ServiceContract, InverstionOfControlInstallAsWcfService]
-    public interface IBarService
+    public interface IBarContract
     {
         [OperationContract]
         bool IsConnected();
 
         [OperationContract]
-        Task<IEnumerable<Brave>> GetAllBraves();
+        Task<IEnumerable<BraveService>> GetAllBraves();
 
         [OperationContract]
-        Task<Brave> GetBrave(int Id);
+        Task<BraveService> GetBrave(int Id);
         
         [OperationContract]
-        Task<int> SaveOrUpdateBrave(Brave brave);
+        Task<int> SaveOrUpdateBrave(BraveService brave);
     }
 }

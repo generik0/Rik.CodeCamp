@@ -83,9 +83,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\BarService.cs" />
-    <Compile Include="Contracts\IBarService.cs" />
+    <Compile Include="Contracts\BarHost.cs" />
+    <Compile Include="Contracts\BarContract.cs" />
+    <Compile Include="Contracts\BraveService.cs" />
+    <Compile Include="Contracts\IBarContract.cs" />
     <Compile Include="Installers\CqrsInstaller.cs" />
+    <Compile Include="IStartup.cs" />
     <Compile Include="IWorker.cs" />
     <Compile Include="Installers\CustomJsonSerializer.cs" />
     <Compile Include="Installers\IWindsorNancyBootstrapperWrapper.cs" />

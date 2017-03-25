@@ -76,7 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarServiceTests.cs" />
+    <Compile Include="BarContralTests-WcfAndSoap.cs" />
     <Compile Include="Helpers\TestSetupFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
