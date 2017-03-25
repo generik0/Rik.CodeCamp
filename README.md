@@ -23,6 +23,7 @@ Note: Focus on the things you are already familiar with, to avoid spending too m
 **Visual Studio**: For fun i decided to use / try VS 2017. Haven't made anything for it yet. So it provided a little extra motivation for the exercise.
 **GAIT code base**: I have added some standard code base from my own comapny GAIT (Generic Automation and IT), just to simplify the work. No unit tests are included for the Gait.x code here.
 **Frontend**: I have not made any frontend. The tests will be integration tests the hit a service/host. What ever pattern is used for the FE integration with the backend, a model would be send and/or queried. And the services i have provided allow a command model and / or query result... So I did not see the value in providing any UI when we have u/integration tests.
+**Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. It is what it is...
 
 
 #Nuget Packages
