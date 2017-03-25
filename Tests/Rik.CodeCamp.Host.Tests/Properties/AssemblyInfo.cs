@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rik.CodeCamp.Wcf.Tests")]
+[assembly: AssemblyTitle("Rik.CodeCamp.Host.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Rik.CodeCamp.Wcf.Tests")]
+[assembly: AssemblyProduct("Rik.CodeCamp.Host.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c9aa9dc8-35af-4376-8eda-b5625230da0c")]
+[assembly: Guid("6ac4a37a-febf-4cef-a33b-9661d61948d7")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C9AA9DC8-35AF-4376-8EDA-B5625230DA0C}</ProjectGuid>
+    <ProjectGuid>{6AC4A37A-FEBF-4CEF-A33B-9661D61948D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rik.CodeCamp.Wcf.Tests</RootNamespace>
-    <AssemblyName>Rik.CodeCamp.Wcf.Tests</AssemblyName>
+    <RootNamespace>Rik.CodeCamp.Host.Tests</RootNamespace>
+    <AssemblyName>Rik.CodeCamp.Host.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -73,7 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

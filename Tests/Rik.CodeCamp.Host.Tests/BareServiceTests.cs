@@ -9,7 +9,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using Rik.CodeCamp.Core.Contracts;
 
-namespace Rik.CodeCamp.Wcf.Tests
+namespace Rik.CodeCamp.Host.Tests
 {
     [TestFixture]
     public class BareServiceTests
