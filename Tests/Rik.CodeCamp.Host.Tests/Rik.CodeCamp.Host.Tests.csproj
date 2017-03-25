@@ -57,6 +57,7 @@
     <Reference Include="Smooth.IoC.Cqrs.Tap, Version=0.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Smooth.IoC.Cqrs.Tap.0.2.4\lib\net461\Smooth.IoC.Cqrs.Tap.dll</HintPath>
     </Reference>
+    <Reference Include="Smooth.IoC.UnitOfWork, Version=0.4.6211.26635, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
