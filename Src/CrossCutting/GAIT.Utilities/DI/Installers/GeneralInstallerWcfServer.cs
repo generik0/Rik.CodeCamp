@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -15,13 +14,11 @@ using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using GAIT.Utilities;
 using GAIT.Utilities.DI.Attributes;
-using GAIT.Utilities.DI.Installers;
 using GAIT.Utilities.Logging;
 using NLog;
 
-namespace DSB.Kcit.Crm.Utilities.DI.Installers
+namespace GAIT.Utilities.DI.Installers
 {
     [NoIoC]
     public class GeneralInstallerWcfServer : IWindsorInstaller
@@ -49,7 +46,6 @@ namespace DSB.Kcit.Crm.Utilities.DI.Installers
                     HttpHelpPageEnabled = true,
                 };
                 container.Register(Component.For<IServiceBehavior>().Instance(returnFaults).IsFallback());
-
                 var assemblies = new List<Assembly>();
                 foreach (var path in _paths)
                 {

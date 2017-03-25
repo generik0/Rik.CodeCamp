@@ -5,7 +5,7 @@ using Nancy.Bootstrappers.Windsor;
 using Nancy.Serialization.JsonNet;
 using Newtonsoft.Json;
 
-namespace Rik.CodeCamp.Core.Nancy
+namespace Rik.CodeCamp.Core.Installers
 {
     [NoIoC]
     public class WindsorNancyBootstrapperWrapper : WindsorNancyBootstrapper, IWindsorNancyBootstrapperWrapper

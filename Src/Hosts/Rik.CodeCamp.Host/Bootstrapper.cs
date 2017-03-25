@@ -6,7 +6,7 @@ using Castle.MicroKernel.Handlers;
 using Castle.Windsor;
 using Castle.Windsor.Diagnostics;
 using GAIT.Utilities;
-using Rik.CodeCamp.Core.Nancy;
+using Rik.CodeCamp.Core.Installers;
 using Rik.CodeCamp.Data;
 
 namespace Rik.CodeCamp.Host
