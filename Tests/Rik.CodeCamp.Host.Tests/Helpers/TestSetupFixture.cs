@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -48,5 +49,6 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
                 }).LifestyleTransient());
 
         }
+        
     }
 }

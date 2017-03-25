@@ -9,7 +9,7 @@ using Rik.CodeCamp.Host.Tests.Helpers;
 namespace Rik.CodeCamp.Host.Tests
 {
     [TestFixture]
-    public class BareServiceTests : TestSetupFixture
+    public class BarServiceTests : TestSetupFixture
     {
         
         [Test, Category("Integration")]
@@ -25,7 +25,7 @@ namespace Rik.CodeCamp.Host.Tests
         [TestCase("2017-03-25T21:00"), Category("Integration")]
         [TestCase("2017-03-25T21:00"), Category("Integration")]
         [TestCase("2017-03-25T22:00"), Category("Integration")]
-        [TestCase("2017-03-2522:00"), Category("Integration")]
+        [TestCase("2017-03-25T22:00"), Category("Integration")]
         public static void SaveOrUpdateBrave_DoesNotThrowAsync_AndReturnsBraveId(string datetime)
         {
             var target = Container.Resolve<IBarService>();
@@ -35,6 +35,10 @@ namespace Rik.CodeCamp.Host.Tests
             
         }
 
+        public static void xxx()
+        {
+            
+        }
 
 
         private static Brave CreateRandomBrave(string datetime)
