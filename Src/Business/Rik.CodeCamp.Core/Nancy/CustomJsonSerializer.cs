@@ -1,4 +1,7 @@
-﻿namespace Rik.CodeCamp.Core.Nancy
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+namespace Rik.CodeCamp.Core.Nancy
 {
     public sealed class CustomJsonSerializer : JsonSerializer
     {

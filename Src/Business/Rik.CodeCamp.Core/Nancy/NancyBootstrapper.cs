@@ -1,4 +1,11 @@
-﻿namespace Rik.CodeCamp.Core.Nancy
+﻿
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using GAIT.Utilities.DI.Attributes;
+using GAIT.Utilities.Logging;
+using NLog;
+
+namespace Rik.CodeCamp.Core.Nancy
 {
     [NoIoC]
     public class NancyBootstrapper
