@@ -81,6 +81,10 @@
       <Project>{24D2ED33-0BDE-4CB9-AE00-324013E37C83}</Project>
       <Name>Rik.CodeCamp.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\Business\Rik.Codecamp.Entities\Rik.Codecamp.Entities.csproj">
+      <Project>{9C26080B-5490-4E17-B788-8911781D63AE}</Project>
+      <Name>Rik.Codecamp.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
