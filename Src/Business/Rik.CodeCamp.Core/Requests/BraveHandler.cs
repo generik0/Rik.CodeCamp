@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Data;
+using System.Threading.Tasks;
 using Rik.Codecamp.Entities;
 using Rik.CodeCamp.Data.Sessions;
 using Rik.CodeCamp.Repository;
@@ -22,7 +23,7 @@ namespace Rik.CodeCamp.Core.Requests
 
         public async Task<int> ExecuteAsync(Brave request)
         {
-            using (var uow = _dbFactory.Create<IUnitOfWork, IFooSession>())
+            using (var uow = _dbFactory.Create<IUnitOfWork, IFooSession>(IsolationLevel.Serializable))
             {
                 return await _braveRepository.SaveOrUpdateAsync(request,uow);
             }
