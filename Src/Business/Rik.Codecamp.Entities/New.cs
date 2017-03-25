@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Dapper.FastCrud;
-using Smooth.IoC.UnitOfWork;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Rik.Codecamp.Entities
 {
-    public class New : IEntity<int>
+    public class New
     {
-        [Key, DatabaseGeneratedDefaultValue]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public double Value { get; set; }
     }
