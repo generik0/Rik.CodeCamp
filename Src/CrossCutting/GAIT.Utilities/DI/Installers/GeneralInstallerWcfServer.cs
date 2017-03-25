@@ -51,7 +51,9 @@ namespace GAIT.Utilities.DI.Installers
                 {
                     foreach (var sufix in ProjectMetadata.ProjectPrefixName)
                     {
-                        assemblies.AddRange(Directory.GetFiles(path, $"{sufix}*.dll").Select(Assembly.LoadFile));
+                        if (!Directory.Exists(path)) continue;
+                        var files = Directory.GetFiles(path, $"{sufix}*.dll");
+                        assemblies.AddRange(files.Select(Assembly.LoadFile));
                     }
                 }
                 var types = assemblies.SelectMany(s => s.GetTypes()).OrderBy(x => x.Name).ToArray();
