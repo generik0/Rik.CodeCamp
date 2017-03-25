@@ -33,7 +33,7 @@ namespace Rik.CodeCamp.Host.Tests
         {
             var target = Container.Resolve<IBarContract>();
             var actual=0;
-            Assert.DoesNotThrowAsync(async ()=> actual = await target.SaveOrUpdateBrave(CreateRandomBrave(datetime)));
+            Assert.DoesNotThrowAsync(async ()=> actual = await target.SaveOrUpdateBrave(StubCreator.CreateRandomBrave(datetime)));
             actual.Should().BePositive();
             
         }
@@ -48,9 +48,9 @@ namespace Rik.CodeCamp.Host.Tests
             actual.Should().NotBeEmpty();
             actual.Count().Should().BeGreaterOrEqualTo(6, "Because we saved 6 in the above method ");
             var world = actual.First().World;
-            AssertWorld(world);
+            Asserters.AssertWorld(world);
             var newd = actual.First().New;
-            AssertNew(newd);
+            Asserters.AssertNew(newd);
         }
 
         [Test, Category("Integration")]
@@ -60,38 +60,9 @@ namespace Rik.CodeCamp.Host.Tests
             Brave actual = null;
             Assert.DoesNotThrowAsync(async () => actual = await target.GetBrave(1)); //There should be a 1
             actual.Should().NotBeNull();
-            AssertNew(actual.New);
-            AssertWorld(actual.World);
+            Asserters.AssertNew(actual.New);
+            Asserters.AssertWorld(actual.World);
 
-        }
-
-        private static void AssertNew(New newd)
-        {
-            
-            newd.Should().NotBeNull();
-            newd.Value.Should().BeGreaterOrEqualTo(1);
-            newd.Value.Should().BeLessOrEqualTo(15);
-        }
-
-        private static void AssertWorld(World world)
-        {
-            world.Should().NotBeNull();
-            world.DateTime.Should().NotBe(new DateTime());
-        }
-
-        private static Brave CreateRandomBrave(string datetime)
-        {
-            return new Brave
-            {
-                New = new New
-                {
-                    Value = TestContext.CurrentContext.Random.NextDouble(1,15)
-                },
-                World = new World
-                {
-                    DateTime = DateTime.Parse(datetime, CultureInfo.InvariantCulture)
-                }
-            };
         }
     }
 }
