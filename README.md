@@ -36,7 +36,7 @@ I have used some of my own packages (links are from nuget, project linkts to git
 ##Others
 * Hosting Service: [Topshelf](https://www.nuget.org/packages/Topshelf/), to run/host the backend application
 * IoC: Castle Windsor, I know you use Ninject. Same same, but different. Castle will also be used in regard to the soap client/server
-* ORM: [Dapper](https://www.nuget.org/packages/Dapper/) and Fast.Dapper (integrated through Smooth.IoC.Dapper...), I know you use Entity FrameWork, but to be honest i am just not fond of entity (SELECT n+1)
+* ORM: [Dapper](https://www.nuget.org/packages/Dapper/) and Dapper.FastCRUD (integrated through Smooth.IoC.Dapper...), I know you use Entity FrameWork, but to be honest i am just not fond of entity (SELECT n+1)
 * Tests with, NUnit, [FakeItEasy](https://www.nuget.org/packages/FakeItEasy/) (I use Moq at work, but FakeItEasy is just so much cooler), and [Fluent Assertions](https://www.nuget.org/packages/FluentAssertions/)
 * Database: 
     * [Sqlite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core/), for portablility and exampling (in memory)
