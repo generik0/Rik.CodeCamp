@@ -2,5 +2,6 @@
 {
     public interface IWorker
     {
+        bool Start();
     }
 }

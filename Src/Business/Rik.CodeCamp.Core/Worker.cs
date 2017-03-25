@@ -2,5 +2,9 @@
 {
     public class Worker : IWorker
     {
+        public bool Start()
+        {
+            
+        }
     }
 }
