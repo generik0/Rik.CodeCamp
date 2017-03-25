@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Dapper.FastCrud;
 using Smooth.IoC.Cqrs.Query;
 using Smooth.IoC.Cqrs.Requests;
 
@@ -8,7 +9,7 @@ namespace Rik.Codecamp.Entities
 {
     public class Brave : IRequest, IQuery
     {
-        [Key]
+        [Key, DatabaseGeneratedDefaultValue]
         public int Id { get; set; }
         [ForeignKey("New")]
         public int NewId { get; set; }
