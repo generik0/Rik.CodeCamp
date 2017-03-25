@@ -10,6 +10,9 @@ namespace Rik.CodeCamp.Core.Contracts
     public interface IBarService
     {
         [OperationContract]
+        bool IsConnected();
+
+        [OperationContract]
         Task<IEnumerable<Brave>> GetAllBraves();
 
         [OperationContract]

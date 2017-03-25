@@ -23,5 +23,10 @@ namespace Rik.CodeCamp.Core.Contracts
         {
             return await _dispatcher.ExecuteAsync<Brave, int>(brave);
         }
+
+        public bool IsConnected()
+        {
+            return true;
+        }
     }
 }
