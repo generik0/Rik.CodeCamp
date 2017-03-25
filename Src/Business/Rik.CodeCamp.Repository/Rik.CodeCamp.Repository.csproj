@@ -39,8 +39,8 @@
     <Reference Include="Smooth.IoC.Dapper.Repository.UnitOfWork, Version=0.4.6211.26637, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Smooth.IoC.Dapper.Repository.UnitOfWork.0.4.17\lib\net461\Smooth.IoC.Dapper.Repository.UnitOfWork.dll</HintPath>
     </Reference>
-    <Reference Include="Smooth.IoC.UnitOfWork, Version=0.4.6208.24427, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Smooth.IoC.UnitOfWork.0.4.8\lib\net461\Smooth.IoC.UnitOfWork.dll</HintPath>
+    <Reference Include="Smooth.IoC.UnitOfWork, Version=0.4.6211.26635, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Smooth.IoC.UnitOfWork.0.4.17\lib\net461\Smooth.IoC.UnitOfWork.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

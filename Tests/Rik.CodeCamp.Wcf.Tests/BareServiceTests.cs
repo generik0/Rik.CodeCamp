@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel;
+using Castle.Facilities.TypedFactory;
 using Castle.Facilities.WcfIntegration;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -20,16 +21,18 @@ namespace Rik.CodeCamp.Wcf.Tests
         public static void TestSetup()
         {
             var process = Process.GetProcesses();
-            if (!process.Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host")))
+            if (!process.Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host"))) // Sorry ran out of time.
             {
                 Assert.Fail("Please start the host as admin....");
             }
             _container = new WindsorContainer();
+            _container.Kernel.AddFacility<TypedFactoryFacility>();
+            _container.Kernel.AddFacility<WcfFacility>();
             _clientBinding = new BasicHttpBinding
             {
                 Security =
                 {
-                    Mode = BasicHttpSecurityMode.Transport,
+                    Mode = BasicHttpSecurityMode.None,
                     Transport = {ClientCredentialType = HttpClientCredentialType.None},
                     Message = {ClientCredentialType = BasicHttpMessageCredentialType.Certificate }
                 }
