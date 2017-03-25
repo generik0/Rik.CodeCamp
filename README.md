@@ -24,7 +24,7 @@ Note: Focus on the things you are already familiar with, to avoid spending too m
 **GAIT code base**: I have added some standard code base from my own comapny GAIT (Generic Automation and IT), just to simplify the work. No unit tests are included for the Gait.x code here.
 **Frontend**: I have not made any frontend. The tests will be integration tests the hit a service/host. What ever pattern is used for the FE integration with the backend, a model would be send and/or queried. And the services i have provided allow a command model and / or query result... So I did not see the value in providing any UI when we have u/integration tests.
 **Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. It is what it is...
-
+**Database** I will use an sqlite memory db for portability. The application needs to migrate the database on startup. Hence the migration will always spin up, for testing purposes.
 
 #Nuget Packages
 
@@ -35,12 +35,13 @@ I have used some of my own packages (links are from nuget, project linkts to git
 
 ##Others
 * Hosting Service: [Topshelf](https://www.nuget.org/packages/Topshelf/), to run/host the backend application
-* IoC: Castle Windsor, I know you use Ninject. Same same, but different.
+* IoC: Castle Windsor, I know you use Ninject. Same same, but different. Castle will also be used in regard to the soap client/server
 * ORM: [Dapper](https://www.nuget.org/packages/Dapper/) and Fast.Dapper (integrated through Smooth.IoC.Dapper...), I know you use Entity FrameWork, but to be honest i am just not fond of entity (SELECT n+1)
 * Tests with, NUnit, [FakeItEasy](https://www.nuget.org/packages/FakeItEasy/) (I use Moq at work, but FakeItEasy is just so much cooler), and [Fluent Assertions](https://www.nuget.org/packages/FluentAssertions/)
 * Database: 
     * [Sqlite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core/), for portablility and exampling (in memory)
     * [Simple.Migrations](https://www.nuget.org/packages/Simple.Migrations/), because it was simple to use for inproc migrations.
+* Rest Host: [Nancy](https://www.nuget.org/packages/Nancy/1.4.3) with castle windsor integration
 
 
 
