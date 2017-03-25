@@ -13,6 +13,7 @@ namespace Rik.CodeCamp.Host
     {
         private Bootstrapper _bootstrapper;
         private readonly ILogger _logger;
+        private IWorker _worker;
 
         public CodeCampControl()
         {
@@ -24,8 +25,8 @@ namespace Rik.CodeCamp.Host
             try
             {
                 _bootstrapper = new Bootstrapper();
-                var worker = _bootstrapper.Resolve<IWorker>();
-                return worker.Start();
+                _worker = _bootstrapper.Resolve<IWorker>();
+                return _worker.Start();
             }
             catch (Exception exception)
             {
@@ -45,6 +46,7 @@ namespace Rik.CodeCamp.Host
                         File.Delete("C:\\RikCodeCampDb.db");
                     }
                 });
+                _worker.Stop();
                 _bootstrapper?.Dispose();
                 CancelAll.Cancel();
                 return true;
