@@ -16,6 +16,9 @@ namespace Rik.CodeCamp.Core.Contracts
         Task<IEnumerable<Brave>> GetAllBraves();
 
         [OperationContract]
+        Task<IEnumerable<Brave>> GetBrave(int Id);
+        
+        [OperationContract]
         Task<int> SaveOrUpdateBrave(Brave brave);
     }
 }

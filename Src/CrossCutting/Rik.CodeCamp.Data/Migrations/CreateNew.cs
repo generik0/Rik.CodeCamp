@@ -7,10 +7,10 @@ namespace Rik.CodeCamp.Data.Migrations
     {
         public override void Up()
         {
-            Execute(@"CREATE TABLE `Worlds` (
-	            `Id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	            `datetime`	NUMERIC
-                );");
+            Execute(@"CREATE TABLE `News` (
+                `Id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+                `Value`	NUMERIC
+                 );");
         }
 
         public override void Down()

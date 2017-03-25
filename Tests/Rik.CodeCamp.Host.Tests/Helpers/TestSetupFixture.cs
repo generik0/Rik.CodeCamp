@@ -16,18 +16,18 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
     {
         private static BasicHttpBinding _clientBinding;
         public static IWindsorContainer Container;
+        private static Process _process;
 
         [OneTimeSetUp]
         public static void TestSetup()
         {
-            var process = Process.GetProcesses();
-            if (!process.Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host")))
+            if (!Process.GetProcesses().Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host")))
             {
                 var paths = TestContext.CurrentContext.TestDirectory.Split('\\');
                 var testsIndex = paths.Select((path, i) => new { path, i }).First(x=>x.path.Equals("Tests")).i;
                 var hostPath = $@"{string.Join(@"\", paths.Take(testsIndex))}\Src\Hosts\Rik.CodeCamp.Host\bin\Debug\Rik.CodeCamp.Host.exe";
-                Process.Start(hostPath);
-                Task.Delay(2000).Wait();
+                _process = Process.Start(hostPath);
+                Task.Delay(2000).Wait(); //I don't have enough time to do better than a timer right now :-/
             }
             if (Container != null) return;
             Container = new WindsorContainer();
@@ -48,6 +48,24 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
                     Endpoint = WcfEndpoint.BoundTo(_clientBinding).At("http://localhost/BarService")
                 }).LifestyleTransient());
 
+        }
+
+        [OneTimeTearDown]
+        public static void TestTearDown()
+        {
+            if (Process.GetProcesses().Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host")))
+            {
+                _process?.Kill();
+                Task.Delay(500).Wait(); //I don't have enough time to do better than a timer right now :-/
+            }
+
+            Task.Run(() =>
+            {
+                if (File.Exists("C:\\RikCodeCampDb.db"))
+                {
+                    File.Delete("C:\\RikCodeCampDb.db");
+                }
+            });
         }
         
     }

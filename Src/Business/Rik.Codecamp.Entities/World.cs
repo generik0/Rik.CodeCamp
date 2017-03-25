@@ -9,6 +9,11 @@ namespace Rik.Codecamp.Entities
     {
         [Key, DatabaseGeneratedDefaultValue]
         public int Id { get; set; }
-        public DateTime DateTime { get; set; }
+        private DateTime _dateTime;
+        public DateTime DateTime
+        {
+            get { return _dateTime; }
+            set { _dateTime = DateTime.SpecifyKind(value, DateTimeKind.Utc); }
+        }
     }
 }

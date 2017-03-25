@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Rik.Codecamp.Entities;
@@ -26,7 +29,7 @@ namespace Rik.CodeCamp.Host.Tests
         [TestCase("2017-03-25T21:00"), Category("Integration")]
         [TestCase("2017-03-25T22:00"), Category("Integration")]
         [TestCase("2017-03-25T22:00"), Category("Integration")]
-        public static void SaveOrUpdateBrave_DoesNotThrowAsync_AndReturnsBraveId(string datetime)
+        public static void _1_SaveOrUpdateBrave_DoesNotThrowAsync_AndReturnsBraveId(string datetime)
         {
             var target = Container.Resolve<IBarService>();
             var actual=0;
@@ -35,9 +38,16 @@ namespace Rik.CodeCamp.Host.Tests
             
         }
 
-        public static void xxx()
+        [Test,Category("Integration")]
+        public static void _2_GetAllBraves()
         {
-            
+            var target = Container.Resolve<IBarService>();
+            IEnumerable<Brave> actual = null;
+            Assert.DoesNotThrowAsync(async () => actual = await target.GetAllBraves());
+            actual.Should().NotBeNull();
+            actual.Should().NotBeEmpty();
+            actual.Count().Should().BeGreaterOrEqualTo(6, "Because we saved 6 in the above method ");
+
         }
 
 
