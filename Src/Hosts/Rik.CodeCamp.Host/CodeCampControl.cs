@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using GAIT.Utilities.Logging;
 using NLog;
 using Rik.CodeCamp.Core;
@@ -36,8 +38,16 @@ namespace Rik.CodeCamp.Host
         {
             try
             {
+                Task.Run(() =>
+                {
+                    if (File.Exists("C:\\RikCodeCampDb.db"))
+                    {
+                        File.Delete("C:\\RikCodeCampDb.db");
+                    }
+                });
                 _bootstrapper?.Dispose();
                 CancelAll.Cancel();
+                return true;
             }
             catch (Exception exception)
             {
