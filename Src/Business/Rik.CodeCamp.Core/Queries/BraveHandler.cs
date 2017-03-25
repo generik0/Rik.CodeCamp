@@ -9,7 +9,7 @@ using Smooth.IoC.UnitOfWork;
 
 namespace Rik.CodeCamp.Core.Queries
 {
-    public class BraveHandler : Handler, IQueryHandler<Brave>
+    public class BraveHandler : Handler, IQueryHandler<Brave>, IQuerySingleHandler<Brave, Brave>
     {
         private readonly IDbFactory _dbFactory;
         private readonly IBraveRepository _braveRepository;
@@ -29,6 +29,19 @@ namespace Rik.CodeCamp.Core.Queries
         }
 
         public IEnumerable<Brave> Query()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<Brave> QuerySingleOrDefaultAsync(Brave query)
+        {
+            using (var session = _dbFactory.Create<IFooSession>())
+            {
+                return await _braveRepository.GetAsync(query, session);
+            }
+        }
+
+        public Brave QuerySingleOrDefault(Brave query)
         {
             throw new System.NotImplementedException();
         }

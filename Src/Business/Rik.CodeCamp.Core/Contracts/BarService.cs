@@ -24,9 +24,15 @@ namespace Rik.CodeCamp.Core.Contracts
             return await _dispatcher.ExecuteAsync<Brave, int>(brave);
         }
 
+        public async Task<Brave> GetBrave(int id)
+        {
+            return await _dispatcher.QuerySingleOrDefaultAsync<Brave,Brave>(new Brave{Id = id});
+        }
         public bool IsConnected()
         {
             return true;
         }
+
+        
     }
 }

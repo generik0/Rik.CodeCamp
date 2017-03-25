@@ -55,18 +55,16 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
         {
             if (Process.GetProcesses().Any(x => x.ProcessName.Contains("Rik.CodeCamp.Host")))
             {
-                if (_process != null)
+                if (_process == null) return;
+                _process.Kill();
+                Task.Delay(500).Wait(); //I don't have enough time to do better than a timer right now :-/
+                Task.Run(() =>
                 {
-                    _process.Kill();
-                    Task.Delay(500).Wait(); //I don't have enough time to do better than a timer right now :-/
-                    Task.Run(() =>
+                    if (File.Exists("C:\\RikCodeCampDb.db"))
                     {
-                        if (File.Exists("C:\\RikCodeCampDb.db"))
-                        {
-                            File.Delete("C:\\RikCodeCampDb.db");
-                        }
-                    });
-                }
+                        File.Delete("C:\\RikCodeCampDb.db");
+                    }
+                });
             }
         }
         

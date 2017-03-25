@@ -69,32 +69,13 @@ namespace Rik.CodeCamp.Repository
         //This is using Dapper.FastCrud
         public override async Task<Brave> GetAsync(Brave entity, ISession session)
         {
-
-            var result = await session.GetAsync(entity, statement =>
-            {
-                statement.Include<New>(join => join.InnerJoin())
-                    .Include<World>(join => join.InnerJoin());
-            });
-
-
-            var query = $@"SELECT fact.Id, fact.NewId, fact.WorldId, val.Id, val.Value, ts.Id, ts.datetime FROM 
-                    {Sql.Table<Brave>(SqlDialect.SqLite)} as fact 
-                    INNER JOIN {Sql.Table<New>(SqlDialect.SqLite)} as val ON val.Id = fact.NewId
-                    INNER JOIN  {Sql.Table<World>(SqlDialect.SqLite)} as ts ON ts.Id =fact.WorldId  
-            Where {Sql.Table<Brave>(SqlDialect.SqLite)}.Id = @Id
-			Order by ts.datetime asc";
-
-            var parameter = new {entity.Id};
-
             var actual = await Task.Run(() =>
             {
-                return session.QueryAsync<Brave, New, World, Brave>(query,
-                    (factdata, val, ts) =>
-                    {
-                        factdata.New = val;
-                        factdata.World = ts;
-                        return factdata;
-                    }, parameter).Result.SingleOrDefault();
+                return session.Get(entity, statement =>
+                {
+                    statement.Include<New>(join => join.InnerJoin())
+                        .Include<World>(join => join.InnerJoin());
+                });
             });
             return actual;
         }
