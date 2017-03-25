@@ -1,6 +1,7 @@
 ﻿using System;
 using GAIT.Utilities.Logging;
 using NLog;
+using Rik.CodeCamp.Core;
 using Topshelf;
 using static GAIT.Utilities.GeneralBootstrapper;
 
@@ -21,8 +22,8 @@ namespace Rik.CodeCamp.Host
             try
             {
                 _bootstrapper = new Bootstrapper();
-                //var worker = _bootstrapper.Resolve<IWorker>();
-                //return worker.Start();
+                var worker = _bootstrapper.Resolve<IWorker>();
+                return worker.Start();
             }
             catch (Exception exception)
             {
