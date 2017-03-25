@@ -31,7 +31,8 @@ namespace GAIT.Utilities.DI.Installers
                     container.Register(Types.FromAssemblyInDirectory(
                         new AssemblyFilter(path).
                             FilterByName(an => _projects.Any(x => an.Name.ToLower().StartsWith(x, StringComparison.Ordinal))))
-                        .Where(t => t.IsInterface && t.HasAttribute<InverstionOfControlInstallAsFactory>())
+                        .Where(t => t.IsInterface && t.GetCustomAttributes(typeof(InverstionOfControlInstallAsFactory), true).Any())
+
                         .Configure(x => x.AsFactory())
                         .LifestyleSingleton());
                 }

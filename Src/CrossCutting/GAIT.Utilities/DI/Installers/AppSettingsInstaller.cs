@@ -40,7 +40,7 @@ namespace GAIT.Utilities.DI.Installers
                     container.Kernel.Register(
                     Classes.FromAssemblyInDirectory(new AssemblyFilter(path)
                         .FilterByName(an => _projects.Any(x => an.Name.ToLower().StartsWith(x, StringComparison.Ordinal))))
-                        .Where(t => t.HasAttribute<InverstionOfControlInstallAsAppSetting>())
+                        .Where(t => t.GetCustomAttributes(typeof(InverstionOfControlInstallAsAppSetting),true).Any())
                         .Configure(
                             component =>
                             {

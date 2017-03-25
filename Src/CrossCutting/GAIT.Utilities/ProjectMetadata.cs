@@ -10,7 +10,7 @@ namespace GAIT.Utilities
     [NoIoC]
     public static class ProjectMetadata
     {
-        public static IEnumerable<string>  ProjectPrefixName = new [] { "GAIT.".ToLower(), "Zatea".ToLower()} ;
+        public static IEnumerable<string>  ProjectPrefixName = new [] { "GAIT.".ToLower(), "Rik".ToLower()} ;
 
         private static readonly IReadOnlyCollection<string> Paths = GetDirectories();
 
@@ -23,7 +23,7 @@ namespace GAIT.Utilities
             {
                 directories.Add(path);
             }
-            directories.Add(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles), "Zatea", "Zatea.VersionBroker"));
+            directories.Add(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles), "Rik", "Rik.CodeCamp"));
             return directories.Distinct().OrderBy(x=>x.Length).ToArray();
 
         }

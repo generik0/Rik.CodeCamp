@@ -25,7 +25,7 @@ namespace GAIT.Utilities.DI.Installers
                     container.Register(Classes.FromAssemblyInDirectory(
                         new AssemblyFilter(path).
                             FilterByName(an => _projects.Any(x => an.Name.ToLower().StartsWith(x, StringComparison.Ordinal))))
-                        .Where(t => t.GetInterfaces().Any() && t.HasAttribute<InverstionOfControlInstallAsSingleton>())
+                        .Where(t => t.GetCustomAttributes(typeof(InverstionOfControlInstallAsSingleton), true).Any())
                         .WithServiceAllInterfaces()
                         .Configure(component =>
                         {
