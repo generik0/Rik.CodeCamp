@@ -3,5 +3,6 @@
     public interface IWorker
     {
         bool Start();
+        void Stop();
     }
 }
