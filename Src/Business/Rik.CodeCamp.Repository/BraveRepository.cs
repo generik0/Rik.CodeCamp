@@ -25,8 +25,8 @@ namespace Rik.CodeCamp.Repository
         //This is using Smooth.IoC.Repo
         public override async Task<int> SaveOrUpdateAsync(Brave entity, IUnitOfWork uow)
         {
-            var newId = await GetOrCreateValue(entity.New, entity.New.Value, uow, nameof(New.Value), _newRepository);
-            var worldId = await GetOrCreateValue(entity.World, entity.World.DateTime, uow, nameof(World.DateTime),_worldRepository);
+            var newId = entity.NewId !=0 ? entity.NewId : await GetOrCreateValue(entity.New, entity.New.Value, uow, nameof(New.Value), _newRepository);
+            var worldId = entity.WorldId !=0 ? entity.WorldId : await GetOrCreateValue(entity.World, entity.World.DateTime, uow, nameof(World.DateTime),_worldRepository);
 
             entity.NewId = newId;
             entity.WorldId = worldId;

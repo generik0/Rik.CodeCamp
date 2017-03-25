@@ -21,7 +21,7 @@ namespace Rik.CodeCamp.Core.Contracts
         {
             try
             {
-                var url1 = $"http://localhost/BarHost/";
+                var url1 = $"http://localhost:8080/BarHost/";
                 _host1 = new NancyHost(new Uri(url1), _bootstrapper);
                 _host1.Start();
                 _logger.Info($"Running on {url1}");

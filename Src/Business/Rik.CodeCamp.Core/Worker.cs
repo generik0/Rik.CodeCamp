@@ -18,7 +18,6 @@ namespace Rik.CodeCamp.Core
         public bool Start()
         {
             _migrator.Start();
-
             return _startups.All(x=>x.Start());
         }
 
