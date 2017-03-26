@@ -1,4 +1,4 @@
-#Description
+# Description
 
 Create an application to demonstrate your skills
 Approximate time to spend on the task: 2 hours
@@ -18,7 +18,7 @@ and stored. Through the website it will also be possible to retrieve already sav
 Note: Focus on the things you are already familiar with, to avoid spending too much time on investigations.
 
 
-#Result
+# Result
 
 * **Self Hosted** This application is self hosting for both Soap and Rest. So please run VS as Admin. The tests will start up the console automatically. Just run the tests.
 * **Visual Studio**: For fun i decided to use / try VS 2017. Haven't made anything for it yet. So it provided a little extra motivation for the exercise.
@@ -27,7 +27,7 @@ Note: Focus on the things you are already familiar with, to avoid spending too m
 * **Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. I have only made integration tests. Which connect to the services Soap and Rest service.
 * **Database** I will use an sqlite file db for portability. The migrations are run on startup for portability. **NB** A sqlite file is created at "c:\RikCodeCampDb.db" i try to delete it if you exict, but yo may need to delete manually
 
-##Where to start looking?
+## Where to start looking?
 * Rik.CodeCamp.Host is the startup project with the services.
 Look at:
 * Integration tests, BarContractTests -> Soap with Castle Wcf Facilty for client and server (could be any Wcf)
@@ -45,18 +45,18 @@ Topshelf/Host startup sequence:
 
 Then both the soap (through Castle) and Rest (Through Nancy) are running and self hosted
 
-##Handlers
+## Handlers
 There is two Cqrs handlers used by both the rest and soap hosts. Both called "BraveHandler". but one is for queries, the other for a request. They complete the business trom a call to the services.
 
 
-#Nuget Packages
+# Nuget Packages
 
-##Own packages
+## Own packages
 I have used some of my own packages (links are from nuget, project linkts to github in nuget):
 * [Smooth.IoC.Dapper.Repository.UnitOfWork](https://www.nuget.org/packages/Smooth.IoC.Dapper.Repository.UnitOfWork/)
 * [Smooth.IoC.Cqrs.Tap](https://www.nuget.org/packages/Smooth.IoC.Cqrs.Tap/)
 
-##Others
+## Others
 * Hosting Service: [Topshelf](https://www.nuget.org/packages/Topshelf/), to run/host the backend application
 * IoC: Castle Windsor, I know you use Ninject. Same same, but different. Castle will also be used in regard to the soap client/server
 * ORM: [Dapper](https://www.nuget.org/packages/Dapper/) and Dapper.FastCRUD (integrated through Smooth.IoC.Dapper...), I know you use Entity FrameWork, but to be honest i am just not fond of entity (SELECT n+1)
