@@ -19,7 +19,7 @@ namespace Rik.CodeCamp.Core.Tests.Queries
     public class BraveHandlerTests
     {
         [Test]
-        public static void Query_DoesNotThrowAsync()
+        public static void Query_DoesNotThrowAsync_ReturnsExpectedCollection()
         {
             IEnumerable<Brave> expected = new[] { new Brave(), new Brave(), new Brave(), };
 
