@@ -24,7 +24,7 @@ namespace Rik.CodeCamp.Core.Queries
         {
             using (var session = _dbFactory.Create<IFooSession>())
             {
-                return await _braveRepository.GetAllAsync(session);
+                return await _braveRepository.GetAllAsync(session).ConfigureAwait(false);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Rik.CodeCamp.Core.Queries
         {
             using (var session = _dbFactory.Create<IFooSession>())
             {
-                return await _braveRepository.GetAsync(query, session);
+                return await _braveRepository.GetAsync(query, session).ConfigureAwait(false);
             }
         }
 
