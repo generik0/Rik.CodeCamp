@@ -24,14 +24,17 @@ Note: Focus on the things you are already familiar with, to avoid spending too m
 * **Visual Studio**: For fun i decided to use / try VS 2017. Haven't made anything for it yet. So it provided a little extra motivation for the exercise.
 * **GAIT code base**: I have added some standard code base from my own comapny GAIT (Generic Automation and IT), just to simplify the work. No unit tests are included for the Gait.x code here.
 * **Frontend**: I have not made any frontend. The tests will be integration tests the hit a service/host. What ever pattern is used for the FE integration with the backend, a model would be send and/or queried. And the services i have provided allow a command model and / or query result... So I did not see the value in providing any UI when we have u/integration tests.
-* **Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. I have only made integration tests. Which connect to the services Soap and Rest service.
 * **Database** I will use an sqlite file db for portability. The migrations are run on startup for portability. **NB** A sqlite file is created at "c:\RikCodeCampDb.db" i try to delete it if you exict, but yo may need to delete manually
+* **Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. I have made:
+    1.  Host integration tests, that connect to the Soap and Rest /hosts and that call the the sqlite db through a cqrs + uow + repo pattern. Project Rik.CodeCamp.Host.Tests
+    2.  A quick mocking example. There was no time for more. I have worked with Moq, RhinoMocks, FakeItEasy and NSubstitute enough to know how to use it and the pro's / con's ;-). Project Rik.CodeCamp.Core.Tests
 
 ## Where to start looking?
 * Rik.CodeCamp.Host is the startup project with the services.
 Look at:
 * Integration tests, BarContractTests -> Soap with Castle Wcf Facilty for client and server (could be any Wcf)
 * Integration tests, BraveServiceTests -> Rest with Nancy
+* Unit test, BraveHandlerTests -> Moq test example.
 
 **The Unit Test are Green, Try and run :-)**
 
@@ -60,11 +63,12 @@ I have used some of my own packages (links are from nuget, project linkts to git
 * Hosting Service: [Topshelf](https://www.nuget.org/packages/Topshelf/), to run/host the backend application
 * IoC: Castle Windsor, I know you use Ninject. Same same, but different. Castle will also be used in regard to the soap client/server
 * ORM: [Dapper](https://www.nuget.org/packages/Dapper/) and Dapper.FastCRUD (integrated through Smooth.IoC.Dapper...), I know you use Entity FrameWork, but to be honest i am just not fond of entity (SELECT n+1)
-* Tests with, NUnit, [Fluent Assertions](https://www.nuget.org/packages/FluentAssertions/)
+* Tests with, NUnit, [Fluent Assertions](https://www.nuget.org/packages/FluentAssertions/), and [Moq](https://www.nuget.org/packages/Moq/) (all though i enjoy [FakeItEasy](https://www.nuget.org/packages/FakeItEasy/) much more)
 * Database: 
     * [Sqlite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core/), for portablility and exampling (in memory)
     * [Simple.Migrations](https://www.nuget.org/packages/Simple.Migrations/), because it was simple to use for inproc migrations.
 * Rest Host: [Nancy](https://www.nuget.org/packages/Nancy/1.4.3) with castle windsor integration
+
 
 
 
