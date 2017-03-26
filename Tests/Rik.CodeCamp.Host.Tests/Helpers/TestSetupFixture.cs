@@ -45,7 +45,7 @@ namespace Rik.CodeCamp.Host.Tests.Helpers
             Container.Register(Component.For<IBarContract>()
                 .AsWcfClient(new DefaultClientModel
                 {
-                    Endpoint = WcfEndpoint.BoundTo(_clientBinding).At("http://localhost/BarService")
+                    Endpoint = WcfEndpoint.BoundTo(_clientBinding).At("http://localhost/BarContract")
                 }).LifestyleTransient());
 
         }
