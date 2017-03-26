@@ -27,10 +27,13 @@ Note: Focus on the things you are already familiar with, to avoid spending too m
 * **Unit tests** There really was not time enough to create TDD / uTests for everything in this exercise. I have only made integration tests. Which connect to the services Soap and Rest service.
 * **Database** I will use an sqlite file db for portability. The migrations are run on startup for portability. **NB** A sqlite file is created at "c:\RikCodeCampDb.db" i try to delete it if you exict, but yo may need to delete manually
 
-##Where to start?
+##Where to start looking?
+* Rik.CodeCamp.Host is the startup project with the services.
 Look at:
-* Integration tests, BarServiceTests -> Soap with Castle Wcf Facilty for client and server (could be any Wcf)
+* Integration tests, BarContractTests -> Soap with Castle Wcf Facilty for client and server (could be any Wcf)
 * Integration tests, BraveServiceTests -> Rest with Nancy
+
+**The Unit Test are Green, Try and run :-)**
 
 Topshelf/Host startup sequence:
 1.  Program

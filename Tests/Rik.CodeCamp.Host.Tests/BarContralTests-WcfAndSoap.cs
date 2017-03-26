@@ -9,7 +9,7 @@ using Rik.CodeCamp.Host.Tests.Helpers;
 namespace Rik.CodeCamp.Host.Tests
 {
     [TestFixture]
-    public class BarContralTests : TestSetupFixture
+    public class BarContractTests : TestSetupFixture
     {
         
         [Test, Category("Integration")]
