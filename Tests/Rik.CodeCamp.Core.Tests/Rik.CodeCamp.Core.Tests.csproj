@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Rik.CodeCamp.Core.Tests</RootNamespace>
     <AssemblyName>Rik.CodeCamp.Core.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.FastCrud, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.FastCrud.2.4.1\lib\net46\Dapper.FastCrud.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.7.7.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.7.7\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Smooth.IoC.Cqrs, Version=0.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Smooth.IoC.Cqrs.Tap.0.2.4\lib\net461\Smooth.IoC.Cqrs.dll</HintPath>
+    </Reference>
+    <Reference Include="Smooth.IoC.Cqrs.Tap, Version=0.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Smooth.IoC.Cqrs.Tap.0.2.4\lib\net461\Smooth.IoC.Cqrs.Tap.dll</HintPath>
+    </Reference>
+    <Reference Include="Smooth.IoC.Dapper.Repository.UnitOfWork, Version=0.4.6211.26637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Smooth.IoC.Dapper.Repository.UnitOfWork.0.4.17\lib\net461\Smooth.IoC.Dapper.Repository.UnitOfWork.dll</HintPath>
+    </Reference>
+    <Reference Include="Smooth.IoC.UnitOfWork, Version=0.4.6211.26635, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Smooth.IoC.UnitOfWork.0.4.17\lib\net461\Smooth.IoC.UnitOfWork.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +75,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\BraveHandlerTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\Business\Rik.CodeCamp.Core\Rik.CodeCamp.Core.csproj">
+      <Project>{24d2ed33-0bde-4cb9-ae00-324013e37c83}</Project>
+      <Name>Rik.CodeCamp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Business\Rik.Codecamp.Entities\Rik.Codecamp.Entities.csproj">
+      <Project>{9C26080B-5490-4E17-B788-8911781D63AE}</Project>
+      <Name>Rik.Codecamp.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Business\Rik.CodeCamp.Repository\Rik.CodeCamp.Repository.csproj">
+      <Project>{E0E1DB22-D574-45EF-96C7-690FEAC0E826}</Project>
+      <Name>Rik.CodeCamp.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\CrossCutting\Rik.CodeCamp.Data\Rik.CodeCamp.Data.csproj">
+      <Project>{B2744FD9-4EF1-41B6-BA7A-B03C44DD4EC9}</Project>
+      <Name>Rik.CodeCamp.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
